@@ -1,0 +1,8 @@
+ops/admin assign owner(s) to ages
+owners can make their age open or closed
+open ages can have a blacklist for griefers
+	blocks to allow or deny access to certain chunks
+closed ages have craftable guest passes
+	shapeless paper + lapis + gold nugget
+	username + duration + visit limit
+	config option for reissuable

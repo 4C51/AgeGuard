@@ -1,4 +1,4 @@
-package foursee.agetrack;
+package foursee.ageguard;
 
 import java.util.logging.Logger;
 
@@ -16,19 +16,20 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid="AgeTrack", name="Myst Age Tracker", version="0.0.1")
+@Mod(modid="AgeTrack", name="Myst Age Security", version="0.1.0", dependencies = "after:Mystcraft")
 @NetworkMod(clientSideRequired=false, serverSideRequired=false)
-public class AgeTrack {
-	public static final String ID = "AgeTrack";
+public class AgeGuard {
+	public static final String ID = "AgeGuard";
 
         // The instance of your mod that Forge uses.
-	@Instance("AgeTrack")
-	public static AgeTrack instance;
+	@Instance("AgeGuard")
+	public static AgeGuard instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide="foursee.agetrack.CommonProxy", serverSide="foursee.agetrack.CommonProxy")
+	@SidedProxy(clientSide="foursee.ageguard.CommonProxy", serverSide="foursee.ageguard.CommonProxy")
 	public static CommonProxy proxy;
 	
 	public static Logger logger;
@@ -42,8 +43,8 @@ public class AgeTrack {
 	@Init
 	public void load(FMLInitializationEvent event) {
 		proxy.registerRenderers();
-		MinecraftForge.EVENT_BUS.register(new PlayerAgeHandler(logger));
-		logger.info("Registered Age Tracker with Forge");
+		GameRegistry.registerPlayerTracker(new PlayerTrackerHandler(logger));
+		logger.info("Registered Player Tracker Handler with Forge");
 	}
 	
 	@PostInit

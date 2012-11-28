@@ -1,0 +1,21 @@
+[
+{
+  "modid" : "AgeGuard",
+  "name" : "Mystcraft Age Security",
+  "version" : "0.1.0",
+  "url" : "",
+  "credits" : "",
+  "authors": [
+    "4C51"
+  ],
+  "description": "Tracks players between ages.  More to come.",
+  "logoFile" : "",
+  "updateUrl" : "",
+  "parent" : "Mystcraft",
+  "screenshots": [
+  ],
+  "dependencies": [
+     "Mystcraft"
+  ]
+}
+]
