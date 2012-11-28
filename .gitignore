@@ -166,4 +166,6 @@ pip-log.txt
 ## Extra
 #############
 
+!bin
+!bin/
 !bin/*
